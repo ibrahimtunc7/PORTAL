@@ -4,102 +4,110 @@ require __DIR__ . '/auth.php';
 
 require_login();
 $me = current_user();
-if (!$me || ($me['role'] ?? '') !== 'admin') {
+if (!$me || (($me['role'] ?? '') !== 'admin')) {
   http_response_code(403);
-  die('Yetkisiz erişim');
+  die('Yetkisiz');
 }
 
-$success = '';
-$error = '';
+function h(?string $s): string {
+  return htmlspecialchars($s ?? '', ENT_QUOTES, 'UTF-8');
+}
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $csrf = (string)($_POST['csrf'] ?? '');
-  if (!verify_csrf($csrf)) {
-    $error = 'Güvenlik doğrulaması başarısız.';
+$msg = '';
+$err = '';
+
+// CREATE USER
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'create') {
+  $fullName = trim((string)($_POST['full_name'] ?? ''));
+  $email    = trim((string)($_POST['email'] ?? ''));
+  $pass     = (string)($_POST['password'] ?? '');
+  $role     = trim((string)($_POST['role'] ?? 'user'));
+
+  // Yeni alanlar
+  $company  = trim((string)($_POST['company_name'] ?? ''));
+  $phone    = trim((string)($_POST['phone'] ?? ''));
+  $address  = trim((string)($_POST['address'] ?? ''));
+
+  if ($email === '' || $pass === '') {
+    $err = 'Email ve şifre zorunludur.';
+  } elseif (!in_array($role, ['admin','user'], true)) {
+    $err = 'Geçersiz rol.';
   } else {
-    $email = strtolower(trim((string)($_POST['email'] ?? '')));
-    $full_name = trim((string)($_POST['full_name'] ?? ''));
-    $role = trim((string)($_POST['role'] ?? 'user'));
-    $pass1 = (string)($_POST['password'] ?? '');
-    $pass2 = (string)($_POST['password2'] ?? '');
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $error = 'Geçerli bir email girin.';
-    } elseif ($pass1 === '' || strlen($pass1) < 8) {
-      $error = 'Şifre en az 8 karakter olmalı.';
-    } elseif ($pass1 !== $pass2) {
-      $error = 'Şifreler eşleşmiyor.';
-    } elseif (!in_array($role, ['user','admin'], true)) {
-      $error = 'Geçersiz rol.';
+    // Email benzersiz mi?
+    $chk = db()->prepare("SELECT id FROM users WHERE email=? LIMIT 1");
+    $chk->execute([$email]);
+    if ($chk->fetch()) {
+      $err = 'Bu email zaten kayıtlı.';
     } else {
-      try {
-        // Email var mı?
-        $chk = db()->prepare("SELECT id FROM users WHERE email=? LIMIT 1");
-        $chk->execute([$email]);
-        if ($chk->fetch()) {
-          $error = 'Bu email zaten kayıtlı.';
-        } else {
-          $hash = password_hash($pass1, PASSWORD_DEFAULT);
+      $hash = password_hash($pass, PASSWORD_DEFAULT);
 
-          $stmt = db()->prepare("
-            INSERT INTO users (email, password_hash, full_name, role, is_active)
-            VALUES (?, ?, ?, ?, 1)
-          ");
-          $stmt->execute([$email, $hash, $full_name !== '' ? $full_name : null, $role]);
+      // users tablonuzda bu kolonlar olmalı:
+      // full_name, email, password_hash, role, company_name, phone, address
+      $st = db()->prepare("
+        INSERT INTO users (full_name, email, password_hash, role, company_name, phone, address)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+      ");
+      $st->execute([
+        $fullName !== '' ? $fullName : null,
+        $email,
+        $hash,
+        $role,
+        $company !== '' ? $company : null,
+        $phone !== '' ? $phone : null,
+        $address !== '' ? $address : null,
+      ]);
 
-          $success = 'Kullanıcı oluşturuldu: ' . htmlspecialchars($email);
-        }
-      } catch (Throwable $e) {
-        $error = 'DB hatası: ' . $e->getMessage();
-      }
+      $msg = '✅ Kullanıcı oluşturuldu.';
     }
   }
 }
 
-// Kullanıcı listesi
-$users = db()->query("SELECT id,email,full_name,role,is_active,created_at FROM users ORDER BY id DESC")->fetchAll();
+// LIST USERS
+$st = db()->prepare("SELECT id, full_name, email, role, company_name, phone, address, created_at FROM users ORDER BY id DESC");
+$st->execute();
+$users = $st->fetchAll();
 ?>
 <!doctype html>
 <html lang="tr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin - Kullanıcılar</title>
+  <title>Kullanıcılar (Admin)</title>
   <style>
-    :root{--bg:#0b1020;--bg2:#0f1a3a;--stroke:rgba(255,255,255,.14);--text:rgba(255,255,255,.92);--muted:rgba(255,255,255,.65);--shadow:0 18px 60px rgba(0,0,0,.55);--radius:18px;}
+    :root{--bg:#0b1020;--bg2:#0f1a3a;--card:rgba(255,255,255,.08);--stroke:rgba(255,255,255,.14);--text:rgba(255,255,255,.92);--muted:rgba(255,255,255,.65);--radius:18px;}
     *{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);
-      background: radial-gradient(1200px 800px at 10% 10%, rgba(124,58,237,.18), transparent 60%),
-                 radial-gradient(900px 650px at 90% 20%, rgba(34,197,94,.14), transparent 55%),
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(124,58,237,.20), transparent 60%),
+                 radial-gradient(900px 650px at 90% 20%, rgba(34,197,94,.16), transparent 55%),
                  linear-gradient(160deg,var(--bg),var(--bg2));
       min-height:100vh; padding:20px;
     }
     a{color:rgba(255,255,255,.88);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .top{max-width:1100px;margin:0 auto 14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1100px;margin:0 auto 14px;}
     .card{max-width:1100px;margin:0 auto;border-radius:var(--radius);border:1px solid var(--stroke);
-      background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.05));box-shadow:var(--shadow);padding:18px;}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-    label{display:block;font-size:13px;color:rgba(255,255,255,.78);margin:0 0 6px}
-    input,select{width:100%;padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.18);background:rgba(10,14,28,.40);color:rgba(255,255,255,.92);outline:none}
-    .full{grid-column:1/-1}
-    .btn{border:0;cursor:pointer;border-radius:14px;padding:12px 14px;font-weight:800;color:white;
-      background:linear-gradient(135deg, rgba(124,58,237,.95), rgba(34,197,94,.85));}
-    .alert{margin:12px 0;padding:12px;border-radius:14px;border:1px solid rgba(255,77,109,.35);background:rgba(255,77,109,.12)}
-    .ok{margin:12px 0;padding:12px;border-radius:14px;border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.12)}
-    table{width:100%;border-collapse:collapse;margin-top:12px}
-    th,td{padding:12px;border-bottom:1px solid rgba(255,255,255,.10);text-align:left;font-size:13px}
+      background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.05));padding:18px;
+    }
+    label{display:block;margin-top:12px;color:rgba(255,255,255,.78);font-size:13px}
+    input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.22);color:#fff}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:900px){ .row{grid-template-columns:1fr} }
+    .btn{display:inline-flex;align-items:center;justify-content:center;margin-top:14px;padding:12px 14px;border-radius:14px;border:0;
+      background:linear-gradient(135deg,#7c3aed,#22c55e);color:#fff;font-weight:900;cursor:pointer}
+    .msg{margin:12px 0;padding:12px;border-radius:14px;border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.12)}
+    .err{margin:12px 0;padding:12px;border-radius:14px;border:1px solid rgba(239,68,68,.35);background:rgba(239,68,68,.12)}
+    table{width:100%;border-collapse:collapse;margin-top:14px}
+    th,td{padding:12px;border-bottom:1px solid rgba(255,255,255,.10);text-align:left;font-size:13px;vertical-align:top}
     th{color:rgba(255,255,255,.78);font-weight:800}
+    .muted{color:var(--muted);font-size:12px;margin-top:4px}
     .badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);font-size:12px}
-    @media(max-width:900px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
 <div class="top">
   <div>
-    <div style="font-weight:900;">Perga Portal • Admin</div>
-    <div style="color:var(--muted);font-size:12px;">Kullanıcı ekleme / liste</div>
+    <div style="font-weight:900;">Perga Portal</div>
+    <div class="muted">Kullanıcı Yönetimi (Admin)</div>
   </div>
   <div style="display:flex;gap:12px;align-items:center;">
     <a href="<?= APP_BASE ?>/index.php">← Panel</a>
@@ -108,69 +116,83 @@ $users = db()->query("SELECT id,email,full_name,role,is_active,created_at FROM u
 </div>
 
 <div class="card">
-  <h2 style="margin:0 0 6px;">Yeni Kullanıcı Oluştur</h2>
-  <div style="color:var(--muted);font-size:13px;">Kayıt ekranı yok. Kullanıcıları sadece admin ekler.</div>
+  <h2 style="margin:0 0 6px;">Yeni Kullanıcı Ekle</h2>
+  <div class="muted">Kullanıcıları sadece admin ekler.</div>
 
-  <?php if ($error): ?><div class="alert"><?= htmlspecialchars($error) ?></div><?php endif; ?>
-  <?php if ($success): ?><div class="ok"><?= $success ?></div><?php endif; ?>
+  <?php if ($msg): ?><div class="msg"><?= h($msg) ?></div><?php endif; ?>
+  <?php if ($err): ?><div class="err"><?= h($err) ?></div><?php endif; ?>
 
-  <form method="post" autocomplete="off">
-    <input type="hidden" name="csrf" value="<?= htmlspecialchars(csrf_token()) ?>">
-    <div class="grid">
+  <form method="post">
+    <input type="hidden" name="action" value="create">
+
+    <div class="row">
       <div>
-        <label>Ad Soyad</label>
+        <label>Yetkili Ad Soyad</label>
         <input name="full_name" placeholder="Örn: Ahmet Yılmaz">
       </div>
       <div>
-        <label>Email (Giriş için)</label>
+        <label>Email</label>
         <input name="email" type="email" required placeholder="ornek@firma.com">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Şifre</label>
+        <input name="password" type="password" required placeholder="••••••••">
       </div>
       <div>
         <label>Rol</label>
         <select name="role">
-          <option value="user">user</option>
-          <option value="admin">admin</option>
+          <option value="user">User (Müşteri)</option>
+          <option value="admin">Admin (Yönetici)</option>
         </select>
       </div>
+    </div>
+
+    <div class="row">
       <div>
-        <label>Şifre (min 8)</label>
-        <input name="password" type="password" required>
+        <label>Firma Adı</label>
+        <input name="company_name" placeholder="Örn: ABC Ambalaj Sanayi">
       </div>
-      <div class="full">
-        <label>Şifre (tekrar)</label>
-        <input name="password2" type="password" required>
-      </div>
-      <div class="full">
-        <button class="btn" type="submit">Kullanıcı Oluştur</button>
+      <div>
+        <label>Telefon</label>
+        <input name="phone" placeholder="Örn: 05xx xxx xx xx">
       </div>
     </div>
+
+    <label>Adres</label>
+    <textarea name="address" rows="2" placeholder="Örn: İstanbul / Tuzla"></textarea>
+
+    <button class="btn">Kullanıcı Oluştur</button>
   </form>
 </div>
 
 <div class="card" style="margin-top:14px;">
   <h2 style="margin:0 0 6px;">Kullanıcılar</h2>
-  <div style="color:var(--muted);font-size:13px;">Toplam: <?= count($users) ?></div>
 
   <table>
     <thead>
       <tr>
-        <th>ID</th>
+        <th>#</th>
+        <th>Firma / Yetkili</th>
         <th>Email</th>
-        <th>Ad Soyad</th>
+        <th>Telefon</th>
         <th>Rol</th>
-        <th>Aktif</th>
-        <th>Kayıt</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach ($users as $u): ?>
         <tr>
           <td><?= (int)$u['id'] ?></td>
-          <td><?= htmlspecialchars((string)$u['email']) ?></td>
-          <td><?= htmlspecialchars((string)($u['full_name'] ?? '')) ?></td>
-          <td><span class="badge"><?= htmlspecialchars((string)$u['role']) ?></span></td>
-          <td><?= ((int)$u['is_active'] === 1) ? 'Evet' : 'Hayır' ?></td>
-          <td><?= htmlspecialchars((string)$u['created_at']) ?></td>
+          <td>
+            <div style="font-weight:900;"><?= h((string)($u['company_name'] ?? '-')) ?></div>
+            <div class="muted"><?= h((string)($u['full_name'] ?? '')) ?></div>
+            <?php if (!empty($u['address'])): ?><div class="muted"><?= h((string)$u['address']) ?></div><?php endif; ?>
+          </td>
+          <td><?= h((string)$u['email']) ?></td>
+          <td><?= h((string)($u['phone'] ?? '-')) ?></td>
+          <td><span class="badge"><?= h((string)$u['role']) ?></span></td>
         </tr>
       <?php endforeach; ?>
     </tbody>

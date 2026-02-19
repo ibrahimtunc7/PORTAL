@@ -49,6 +49,14 @@ if (!empty($r['specs_json'])) {
   if (is_array($tmp)) $specs = $tmp;
 }
 
+
+
+$items = [];
+if (!empty($r['items_json'])) {
+  $tmpItems = json_decode((string)$r['items_json'], true);
+  if (is_array($tmpItems)) $items = $tmpItems;
+}
+
 function status_label(string $s): array {
   // [text, badgeClass]
   switch ($s) {
@@ -188,6 +196,47 @@ function status_label(string $s): array {
         <div class="box"><?= h((string)($details ?: '—')) ?></div>
       </div>
 
+
+      <?php if (!empty($items)): ?>
+        <div class="section">
+          <div class="h3">Talep Edilen Ürünler</div>
+
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <?php foreach ($items as $it): ?>
+              <?php
+                $itCat = trim((string)($it['category'] ?? ''));
+                $itPrd = trim((string)($it['product'] ?? ''));
+                $itQty = trim((string)($it['quantity'] ?? ''));
+                $itSpecs = (isset($it['specs']) && is_array($it['specs'])) ? $it['specs'] : [];
+                $title = (($itCat !== '' ? $itCat : 'Kategori') . ' / ' . ($itPrd !== '' ? $itPrd : 'Ürün'));
+              ?>
+              <div class="box" style="padding:12px;">
+                <div style="font-weight:900;"><?= h($title) ?></div>
+                <div class="muted" style="margin-top:4px;">
+                  Miktar: <b><?= h($itQty !== '' ? $itQty : '-') ?></b>
+                </div>
+
+                <?php if (!empty($itSpecs)): ?>
+                  <div class="spec" style="margin-top:10px;">
+                    <?php foreach ($itSpecs as $k => $v): ?>
+                      <?php
+                        $kk = is_scalar($k) ? (string)$k : json_encode($k, JSON_UNESCAPED_UNICODE);
+                        $vv = is_scalar($v) ? (string)$v : json_encode($v, JSON_UNESCAPED_UNICODE);
+                      ?>
+                      <span class="chip"><?= h($kk) ?>: <b><?= h($vv) ?></b></span>
+                    <?php endforeach; ?>
+                  </div>
+                <?php else: ?>
+                  <div class="note" style="margin-top:10px;">Bu üründe teknik detay belirtilmemiş.</div>
+                <?php endif; ?>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      <?php endif; ?>
+
+
+
       <?php if (!empty($specs)): ?>
         <div class="section">
           <div class="h3">Teknik Özellikler</div>
@@ -232,7 +281,6 @@ function status_label(string $s): array {
         </div>
         <div class="muted" style="margin-top:10px;">
         <?php
-        
 $files = db()->prepare("
   SELECT *
   FROM user_files
@@ -258,11 +306,32 @@ $fileRows = $files->fetchAll();
           </div>
           <a class="btn" href="<?= APP_BASE ?>/download.php?id=<?= (int)$f['id'] ?>">İndir</a>
         </div>
-        
       <?php endforeach; ?>
     </div>
   <?php endif; ?>
+
+
 </div>
+  <?php if ($isAdmin): ?>
+<div class="card" style="margin-top:14px;">
+  <div class="title" style="font-size:16px;">Talep Durumu</div>
+
+  <form method="post" action="<?= APP_BASE ?>/update_status.php" style="margin-top:10px;">
+    <input type="hidden" name="request_id" value="<?= (int)$r['id'] ?>">
+
+    <select name="status" style="width:100%;padding:10px;border-radius:10px;background:#111;color:#fff;border:1px solid rgba(255,255,255,.2);">
+      <option value="new" <?= $status=='new'?'selected':'' ?>>Yeni Talep</option>
+      <option value="processing" <?= $status=='processing'?'selected':'' ?>>İnceleniyor</option>
+      <option value="offer_sent" <?= $status=='offer_sent'?'selected':'' ?>>Teklif Gönderildi</option>
+      <option value="closed" <?= $status=='closed'?'selected':'' ?>>Kapandı</option>
+    </select>
+
+    <button class="btn primary" style="width:100%;margin-top:10px;">
+      Durumu Güncelle
+    </button>
+  </form>
+</div>
+<?php endif; ?>
 
         </div>
       </div>

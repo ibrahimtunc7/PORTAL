@@ -68,3 +68,150 @@ Stack trace:
 [16-Feb-2026 16:41:49 Europe/Istanbul] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in /home/pergaend/public_html/portal/request_detail.php on line 141
 [16-Feb-2026 16:41:55 Europe/Istanbul] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in /home/pergaend/public_html/portal/request_detail.php on line 141
 [16-Feb-2026 16:42:21 Europe/Istanbul] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in /home/pergaend/public_html/portal/request_detail.php on line 141
+[16-Feb-2026 22:27:29 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:27:40 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:27:58 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:28:08 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:28:31 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:28:38 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:29:07 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:30:28 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:31:10 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:31:13 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:37:06 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:51:17 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:51:31 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:59:45 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 22:59:51 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:09:50 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:13:10 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:13:16 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:13:20 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:17:56 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:18:50 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:23:41 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:23:49 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:23:53 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:24:03 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:24:11 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:24:20 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:24:24 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:27:37 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:27:39 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:27:47 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:27:49 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:27:52 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:42:55 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:45:44 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:49:02 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:49:08 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:49:14 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[16-Feb-2026 23:51:24 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:05:57 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:06:00 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:06:11 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:06:28 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:09:19 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:09:46 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:14:03 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:14:14 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:15:53 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:22:33 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:22:39 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:24:50 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:32:28 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:32:31 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:34:43 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:34:55 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:34:57 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:35:03 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[17-Feb-2026 00:35:07 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 01:17:15 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:12:30 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:12:33 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:12:38 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:12:45 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:13:10 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:13:26 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:13:29 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:14:37 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:18:24 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:18:27 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:18:29 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:19:11 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:22:47 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:28:58 Europe/Istanbul] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/pergaend/public_html/portal/request_detail.php on line 54
+[18-Feb-2026 02:29:00 Europe/Istanbul] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/pergaend/public_html/portal/request_detail.php on line 54
+[18-Feb-2026 02:29:03 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:30:18 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:33:34 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:33:44 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:35:05 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:35:08 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:35:19 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:35:23 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:35:25 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:35:29 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:38:54 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:39:07 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:51:29 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:51:31 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:57:00 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 02:57:12 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 03:00:22 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 03:00:24 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 03:33:45 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'INSERT INTO' in /home/pergaend/public_html/portal/register_supplier.php:34
+Stack trace:
+#0 /home/pergaend/public_html/portal/register_supplier.php(34): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/register_supplier.php on line 34
+[18-Feb-2026 03:33:53 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 03:34:37 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'INSERT INTO' in /home/pergaend/public_html/portal/register_supplier.php:34
+Stack trace:
+#0 /home/pergaend/public_html/portal/register_supplier.php(34): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/register_supplier.php on line 34
+[18-Feb-2026 03:35:59 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[18-Feb-2026 03:36:48 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'INSERT INTO' in /home/pergaend/public_html/portal/register_supplier.php:34
+Stack trace:
+#0 /home/pergaend/public_html/portal/register_supplier.php(34): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/register_supplier.php on line 34
+[18-Feb-2026 03:40:50 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'INSERT INTO' in /home/pergaend/public_html/portal/register_supplier.php:34
+Stack trace:
+#0 /home/pergaend/public_html/portal/register_supplier.php(34): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/register_supplier.php on line 34
+[19-Feb-2026 23:02:16 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:02:38 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:03:14 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:08:00 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:08:09 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:08:25 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:08:45 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:09:14 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:09:18 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:09:21 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:10:27 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:12:09 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:16:24 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:21:52 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:21:56 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[19-Feb-2026 23:35:44 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'SET' in /home/pergaend/public_html/portal/reset_admin.php:14
+Stack trace:
+#0 /home/pergaend/public_html/portal/reset_admin.php(14): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/reset_admin.php on line 14
+[19-Feb-2026 23:36:32 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'SET' in /home/pergaend/public_html/portal/reset_admin.php:14
+Stack trace:
+#0 /home/pergaend/public_html/portal/reset_admin.php(14): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/reset_admin.php on line 14
+[19-Feb-2026 23:42:05 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'SET' in /home/pergaend/public_html/portal/reset_admin.php:21
+Stack trace:
+#0 /home/pergaend/public_html/portal/reset_admin.php(21): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/reset_admin.php on line 21
+[20-Feb-2026 00:03:12 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[20-Feb-2026 00:03:27 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311
+[20-Feb-2026 00:07:25 Europe/Istanbul] PHP Notice:  Undefined variable: byStatus in /home/pergaend/public_html/portal/index.php on line 311

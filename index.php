@@ -4,26 +4,41 @@ require __DIR__ . '/auth.php';
 
 require_login();  
 $user = current_user();
+$isAdmin = (($user['role'] ?? '') === 'admin');
+
 if (!$user) { header('Location: ' . APP_BASE . '/logout.php'); exit; }
 
 $name = $user['full_name'] ?: $user['email'];
 // İstatistikler
-$stmt = db()->prepare("SELECT COUNT(*) AS c FROM quote_requests WHERE user_id=?");
-$stmt->execute([(int)$user['id']]);
-$total = (int)($stmt->fetch()['c'] ?? 0);
+if ($isAdmin) {
+  $stmt = db()->prepare("SELECT COUNT(*) FROM quote_requests");
+  $stmt->execute();
+} else {
+  $stmt = db()->prepare("SELECT COUNT(*) FROM quote_requests WHERE user_id=?");
+  $stmt->execute([(int)$user['id']]);
+}
+$total = (int)$stmt->fetchColumn();
 
-$stmt = db()->prepare("SELECT id, subject, status, created_at FROM quote_requests WHERE user_id=? ORDER BY id DESC LIMIT 1");
-$stmt->execute([(int)$user['id']]);
-$last = $stmt->fetch(); // yoksa false
 
-$stmt = db()->prepare("
-  SELECT status, COUNT(*) AS c
-  FROM quote_requests
-  WHERE user_id=?
-  GROUP BY status
-");
-$stmt->execute([(int)$user['id']]);
-$byStatus = $stmt->fetchAll();
+if ($isAdmin) {
+  $stmt = db()->prepare("SELECT * FROM quote_requests ORDER BY id DESC LIMIT 1");
+  $stmt->execute();
+} else {
+  $stmt = db()->prepare("SELECT * FROM quote_requests WHERE user_id=? ORDER BY id DESC LIMIT 1");
+  $stmt->execute([(int)$user['id']]);
+}
+$last = $stmt->fetch();
+
+
+if ($isAdmin) {
+  $stmt = db()->prepare("SELECT status, COUNT(*) c FROM quote_requests GROUP BY status");
+  $stmt->execute();
+} else {
+  $stmt = db()->prepare("SELECT status, COUNT(*) c FROM quote_requests WHERE user_id=? GROUP BY status");
+  $stmt->execute([(int)$user['id']]);
+}
+$stats = $stmt->fetchAll();
+
 
 ?>
 <!doctype html>
