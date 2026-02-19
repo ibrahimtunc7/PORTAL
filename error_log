@@ -1,0 +1,70 @@
+[12-Feb-2026 23:35:45 Europe/Istanbul] PHP Warning:  Use of undefined constant DB_HOST - assumed 'DB_HOST' (this will throw an Error in a future version of PHP) in /home/pergaend/public_html/portal/db.php on line 9
+[12-Feb-2026 23:35:45 Europe/Istanbul] PHP Warning:  Use of undefined constant DB_NAME - assumed 'DB_NAME' (this will throw an Error in a future version of PHP) in /home/pergaend/public_html/portal/db.php on line 9
+[12-Feb-2026 23:35:45 Europe/Istanbul] PHP Warning:  Use of undefined constant DB_USER - assumed 'DB_USER' (this will throw an Error in a future version of PHP) in /home/pergaend/public_html/portal/db.php on line 10
+[12-Feb-2026 23:35:45 Europe/Istanbul] PHP Warning:  Use of undefined constant DB_PASS - assumed 'DB_PASS' (this will throw an Error in a future version of PHP) in /home/pergaend/public_html/portal/db.php on line 10
+[13-Feb-2026 01:39:43 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'direction' in 'SELECT' in /home/pergaend/public_html/portal/files.php:15
+Stack trace:
+#0 /home/pergaend/public_html/portal/files.php(15): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/files.php on line 15
+[13-Feb-2026 01:39:51 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'direction' in 'SELECT' in /home/pergaend/public_html/portal/files.php:15
+Stack trace:
+#0 /home/pergaend/public_html/portal/files.php(15): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/files.php on line 15
+[13-Feb-2026 01:41:02 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'direction' in 'INSERT INTO' in /home/pergaend/public_html/portal/send_file.php:51
+Stack trace:
+#0 /home/pergaend/public_html/portal/send_file.php(51): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/send_file.php on line 51
+[13-Feb-2026 01:42:14 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'direction' in 'INSERT INTO' in /home/pergaend/public_html/portal/send_file.php:51
+Stack trace:
+#0 /home/pergaend/public_html/portal/send_file.php(51): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/send_file.php on line 51
+[13-Feb-2026 01:44:35 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'direction' in 'INSERT INTO' in /home/pergaend/public_html/portal/send_file.php:51
+Stack trace:
+#0 /home/pergaend/public_html/portal/send_file.php(51): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/send_file.php on line 51
+[13-Feb-2026 01:50:55 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'direction' in 'INSERT INTO' in /home/pergaend/public_html/portal/admin_send_file.php:62
+Stack trace:
+#0 /home/pergaend/public_html/portal/admin_send_file.php(62): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/admin_send_file.php on line 62
+[13-Feb-2026 01:52:04 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'note' in 'INSERT INTO' in /home/pergaend/public_html/portal/admin_send_file.php:62
+Stack trace:
+#0 /home/pergaend/public_html/portal/admin_send_file.php(62): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/admin_send_file.php on line 62
+[13-Feb-2026 01:52:10 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'note' in 'INSERT INTO' in /home/pergaend/public_html/portal/admin_send_file.php:62
+Stack trace:
+#0 /home/pergaend/public_html/portal/admin_send_file.php(62): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/admin_send_file.php on line 62
+[13-Feb-2026 01:52:26 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'note' in 'INSERT INTO' in /home/pergaend/public_html/portal/admin_send_file.php:62
+Stack trace:
+#0 /home/pergaend/public_html/portal/admin_send_file.php(62): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/admin_send_file.php on line 62
+[13-Feb-2026 01:54:04 Europe/Istanbul] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'mime' in 'INSERT INTO' in /home/pergaend/public_html/portal/admin_send_file.php:62
+Stack trace:
+#0 /home/pergaend/public_html/portal/admin_send_file.php(62): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/pergaend/public_html/portal/admin_send_file.php on line 62
+[13-Feb-2026 03:25:50 Europe/Istanbul] PHP Fatal error:  strict_types declaration must be the very first statement in the script in /home/pergaend/public_html/portal/request_quote_ai.php on line 5
+[13-Feb-2026 03:25:55 Europe/Istanbul] PHP Fatal error:  strict_types declaration must be the very first statement in the script in /home/pergaend/public_html/portal/request_quote_ai.php on line 5
+[13-Feb-2026 03:25:56 Europe/Istanbul] PHP Fatal error:  strict_types declaration must be the very first statement in the script in /home/pergaend/public_html/portal/request_quote_ai.php on line 5
+[16-Feb-2026 12:55:37 Europe/Istanbul] PHP Fatal error:  strict_types declaration must be the very first statement in the script in /home/pergaend/public_html/portal/request_quote_ai.php on line 5
+[16-Feb-2026 16:06:15 Europe/Istanbul] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/pergaend/public_html/portal/admin_send_file.php on line 65
+[16-Feb-2026 16:06:17 Europe/Istanbul] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/pergaend/public_html/portal/admin_send_file.php on line 65
+[16-Feb-2026 16:06:53 Europe/Istanbul] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/pergaend/public_html/portal/admin_send_file.php on line 65
+[16-Feb-2026 16:07:59 Europe/Istanbul] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/pergaend/public_html/portal/admin_send_file.php on line 65
+[16-Feb-2026 16:07:59 Europe/Istanbul] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home/pergaend/public_html/portal/admin_send_file.php on line 65
+[16-Feb-2026 16:41:30 Europe/Istanbul] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in /home/pergaend/public_html/portal/request_detail.php on line 141
+[16-Feb-2026 16:41:32 Europe/Istanbul] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in /home/pergaend/public_html/portal/request_detail.php on line 141
+[16-Feb-2026 16:41:38 Europe/Istanbul] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in /home/pergaend/public_html/portal/request_detail.php on line 141
+[16-Feb-2026 16:41:44 Europe/Istanbul] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in /home/pergaend/public_html/portal/request_detail.php on line 141
+[16-Feb-2026 16:41:49 Europe/Istanbul] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in /home/pergaend/public_html/portal/request_detail.php on line 141
+[16-Feb-2026 16:41:55 Europe/Istanbul] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in /home/pergaend/public_html/portal/request_detail.php on line 141
+[16-Feb-2026 16:42:21 Europe/Istanbul] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in /home/pergaend/public_html/portal/request_detail.php on line 141
