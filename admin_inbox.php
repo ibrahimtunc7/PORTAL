@@ -25,16 +25,7 @@ function human_bytes(?int $b): string {
 <!doctype html><html lang="tr"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin - Gelen Dosyalar</title>
-<style>
-body{font-family:system-ui,Arial;margin:0;padding:20px;background:#0b1020;color:#fff}
-a{color:#fff}
-.card{max-width:1100px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px}
-table{width:100%;border-collapse:collapse;margin-top:10px}
-th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,.12);text-align:left;font-size:13px}
-th{color:rgba(255,255,255,.8)}
-.btn{display:inline-block;padding:8px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);text-decoration:none}
-.muted{color:rgba(255,255,255,.65);font-size:12px}
-</style></head><body>
+<link rel="stylesheet" href="<?= APP_BASE ?>/assets/styles.css"></head><body class="page-admin-inbox">
 <div class="card">
   <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;">
     <div>

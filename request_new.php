@@ -14,65 +14,9 @@ $created = isset($_GET['created']);
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Teklif Talebi (Kombine)</title>
-  <style>
-    :root{
-      --bg:#0b1020;--bg2:#0f1a3a;
-      --card:rgba(255,255,255,.08);--stroke:rgba(255,255,255,.14);
-      --text:rgba(255,255,255,.92);--muted:rgba(255,255,255,.65);
-      --shadow:0 18px 60px rgba(0,0,0,.55);--radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);
-      background:
-        radial-gradient(1200px 800px at 10% 10%, rgba(124,58,237,.20), transparent 60%),
-        radial-gradient(900px 650px at 90% 20%, rgba(34,197,94,.16), transparent 55%),
-        linear-gradient(160deg,var(--bg),var(--bg2));
-      min-height:100vh; padding:20px;
-    }
-    a{color:rgba(255,255,255,.88);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:980px;margin:0 auto 14px;}
-    .card{
-      max-width:980px;margin:0 auto;border-radius:var(--radius);
-      border:1px solid var(--stroke);
-      background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.05));
-      box-shadow:var(--shadow);padding:18px;
-    }
-    label{display:block;margin-top:12px;color:rgba(255,255,255,.78);font-size:13px}
-    input,select,textarea{
-      width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.22);color:#fff;outline:none;
-    }
-    textarea{resize:vertical}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media (max-width:900px){ .row{grid-template-columns:1fr} }
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);color:rgba(255,255,255,.92);cursor:pointer;text-decoration:none;
-    }
-    .btn.primary{
-      border:0;background:linear-gradient(135deg,#7c3aed,#22c55e);font-weight:900;
-    }
-    .muted{color:var(--muted);font-size:13px}
-    .ok{margin:12px 0;padding:12px;border-radius:14px;border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.12)}
-    .box{margin-top:14px;padding:14px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);}
-    .items{margin-top:10px;display:flex;flex-direction:column;gap:10px}
-    .item{
-      display:flex;justify-content:space-between;gap:10px;align-items:flex-start;
-      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);
-      padding:12px;border-radius:12px;
-    }
-    .item .t{font-weight:900}
-    .item .s{color:rgba(255,255,255,.75);font-size:13px;margin-top:4px}
-    .item .m{color:rgba(255,255,255,.65);font-size:12px;margin-top:6px;line-height:1.4}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .chip{font-size:12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);padding:6px 10px;border-radius:999px}
-    .hint{color:rgba(255,255,255,.65);font-size:12px;margin-top:8px}
-  </style>
+  <link rel="stylesheet" href="<?= APP_BASE ?>/assets/styles.css">
 </head>
-<body>
+<body class="page-request-new">
 
 <div class="top">
   <div>

@@ -74,18 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!doctype html><html lang="tr"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dosya Gönder</title>
-<style>
-body{font-family:system-ui,Arial;margin:0;padding:20px;background:#0b1020;color:#fff}
-a{color:#fff}
-.card{max-width:900px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px}
-label{display:block;margin-top:10px;margin-bottom:6px;color:rgba(255,255,255,.8)}
-input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.2);color:#fff}
-textarea{min-height:110px}
-button{margin-top:12px;padding:12px 14px;border-radius:12px;border:0;background:linear-gradient(135deg,#7c3aed,#22c55e);color:#fff;font-weight:800;cursor:pointer}
-.err{padding:10px;border-radius:12px;background:rgba(255,77,109,.14);border:1px solid rgba(255,77,109,.35)}
-.ok{padding:10px;border-radius:12px;background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.35)}
-.muted{color:rgba(255,255,255,.65);font-size:12px}
-</style></head><body>
+<link rel="stylesheet" href="<?= APP_BASE ?>/assets/styles.css"></head><body class="page-send-file">
 <div class="card">
   <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;">
     <div>

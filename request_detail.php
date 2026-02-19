@@ -75,57 +75,9 @@ function status_label(string $s): array {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= h($subject) ?> • Talep Detay</title>
-<style>
-  :root{
-    --bg:#0b1020;
-    --card:rgba(255,255,255,.06);
-    --card2:rgba(255,255,255,.04);
-    --br:rgba(255,255,255,.12);
-    --mut:rgba(255,255,255,.65);
-    --txt:#fff;
-    --g1:#7c3aed; --g2:#22c55e;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
-  a{color:#fff;text-decoration:none}
-  .wrap{max-width:1100px;margin:0 auto;padding:20px}
-  .topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-  .crumb{display:flex;gap:10px;align-items:center;color:var(--mut);font-size:13px}
-  .crumb a{color:var(--mut)}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid var(--br);background:var(--card);cursor:pointer}
-  .btn.primary{border:0;background:linear-gradient(135deg,var(--g1),var(--g2));font-weight:800}
-  .btn.ghost{background:transparent}
-  .grid{display:grid;grid-template-columns: 1.6fr .9fr;gap:14px}
-  @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
-  .card{background:var(--card);border:1px solid var(--br);border-radius:18px;padding:16px}
-  .title{font-weight:950;font-size:18px;letter-spacing:.2px}
-  .muted{color:var(--mut);font-size:12px}
-  .badge{display:inline-flex;align-items:center;padding:7px 10px;border-radius:999px;border:1px solid var(--br);background:var(--card2);font-size:12px}
-  .b-new{border-color:rgba(124,58,237,.35);background:rgba(124,58,237,.14)}
-  .b-proc{border-color:rgba(59,130,246,.35);background:rgba(59,130,246,.14)}
-  .b-offer{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.14)}
-  .b-closed{border-color:rgba(148,163,184,.35);background:rgba(148,163,184,.10)}
-  .hero{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start}
-  .hero-left{min-width:260px}
-  .hero-right{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  .kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
-  @media (max-width:520px){ .kpi{grid-template-columns:1fr} }
-  .k{background:var(--card2);border:1px solid var(--br);border-radius:14px;padding:12px}
-  .k .t{font-size:12px;color:var(--mut);margin-bottom:6px}
-  .k .v{font-weight:900}
-  .section{margin-top:14px}
-  .h3{font-weight:900;margin:0 0 10px 0;font-size:14px;color:rgba(255,255,255,.9)}
-  .list{display:flex;flex-direction:column;gap:10px}
-  .row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.10)}
-  .row:last-child{border-bottom:0}
-  .row .l{color:var(--mut);font-size:12px}
-  .row .r{font-weight:800}
-  .spec{display:flex;flex-wrap:wrap;gap:8px}
-  .chip{font-size:12px;border:1px solid var(--br);background:var(--card2);padding:8px 10px;border-radius:999px}
-  .note{border-left:3px solid rgba(34,197,94,.55);padding:10px 12px;background:rgba(34,197,94,.08);border-radius:12px}
-</style>
+  <link rel="stylesheet" href="<?= APP_BASE ?>/assets/styles.css">
 </head>
-<body>
+<body class="page-request-detail">
 <div class="wrap">
 
   <div class="topbar">
@@ -317,6 +269,7 @@ $fileRows = $files->fetchAll();
   <div class="title" style="font-size:16px;">Talep Durumu</div>
 
   <form method="post" action="<?= APP_BASE ?>/update_status.php" style="margin-top:10px;">
+    <input type="hidden" name="csrf" value="<?= h(csrf_token()) ?>">
     <input type="hidden" name="request_id" value="<?= (int)$r['id'] ?>">
 
     <select name="status" style="width:100%;padding:10px;border-radius:10px;background:#111;color:#fff;border:1px solid rgba(255,255,255,.2);">
