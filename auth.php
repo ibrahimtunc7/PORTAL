@@ -39,6 +39,29 @@ function require_login(): void {
   }
 }
 
+function require_admin(): array {
+  require_login();
+  $user = current_user();
+  if (!$user || ($user['role'] ?? '') !== 'admin') {
+    http_response_code(403);
+    die('Yetkisiz');
+  }
+  return $user;
+}
+
+function require_post_csrf(): void {
+  if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    die('Method not allowed');
+  }
+
+  $csrf = (string)($_POST['csrf'] ?? '');
+  if (!verify_csrf($csrf)) {
+    http_response_code(400);
+    die('Güvenlik doğrulaması başarısız.');
+  }
+}
+
 function login_user(string $email, string $password): bool {
   $stmt = db()->prepare('SELECT id,password_hash,is_active FROM users WHERE email=? LIMIT 1');
   $stmt->execute([$email]);

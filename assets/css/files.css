@@ -1,0 +1,12 @@
+/* files + send + admin file pages */
+body.page-files,body.page-send-file,body.page-admin-send-file,body.page-admin-inbox{font-family:system-ui,Arial;margin:0;padding:20px;background:#0b1020;color:#fff}
+body.page-files a,body.page-send-file a,body.page-admin-send-file a,body.page-admin-inbox a{color:#fff}
+body.page-files .card,body.page-send-file .card,body.page-admin-send-file .card,body.page-admin-inbox .card{max-width:1100px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px}
+body.page-send-file .card{max-width:900px}
+body.page-admin-send-file .card{max-width:1000px}
+body.page-files table,body.page-admin-inbox table{width:100%;border-collapse:collapse;margin-top:10px}
+body.page-files th,body.page-files td,body.page-admin-inbox th,body.page-admin-inbox td{padding:10px;border-bottom:1px solid rgba(255,255,255,.12);text-align:left;font-size:13px}
+body.page-files .btn,body.page-admin-inbox .btn{display:inline-block;padding:8px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);text-decoration:none}
+body.page-send-file label,body.page-admin-send-file label{display:block;margin-top:10px;margin-bottom:6px;color:rgba(255,255,255,.8)}
+body.page-send-file input,body.page-send-file select,body.page-send-file textarea,body.page-admin-send-file input,body.page-admin-send-file select,body.page-admin-send-file textarea{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.2);color:#fff}
+body.page-send-file button,body.page-admin-send-file button{margin-top:12px;padding:12px 14px;border-radius:12px;border:0;background:linear-gradient(135deg,#7c3aed,#22c55e);color:#fff;font-weight:800;cursor:pointer}

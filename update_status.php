@@ -2,15 +2,11 @@
 declare(strict_types=1);
 require __DIR__ . '/auth.php';
 
-require_login();
-$me = current_user();
-
-if (($me['role'] ?? '') !== 'admin') {
-  die('Yetkisiz');
-}
+require_admin();
+require_post_csrf();
 
 $requestId = (int)($_POST['request_id'] ?? 0);
-$status = $_POST['status'] ?? '';
+$status = (string)($_POST['status'] ?? '');
 
 $allowed = ['new','processing','offer_sent','closed'];
 if (!$requestId || !in_array($status, $allowed, true)) {
